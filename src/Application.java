@@ -11,6 +11,12 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
+        FactureHandler factureHandler = new FactureHandler("secrétariat", "secrétariat");
+        List<Facture> list = factureHandler.getFactureNonIncluse();
+        System.out.println(list);
+
+
+
 //        String token = null;
 //        String baseUrl = "http://157.26.83.80:2240";
 //        String followUpURL = "/token";
@@ -48,17 +54,5 @@ public class Application {
 //        }catch (Exception e){
 //            System.out.println(e);
 //        }
-
-        FactureHandler factureHandler = new FactureHandler("secrétariat", "secrétariat");
-        List<Facture> list = factureHandler.getFactureNonIncluse();
-        System.out.println(list);
-        for (Facture facture: list) {
-            System.out.println(facture.getNomFournisseur());
-            facture.setNomFournisseur("Jeremy le lourdeau");
-            System.out.println(facture.getNomFournisseur());
-        }
-
-
-
     }
 }

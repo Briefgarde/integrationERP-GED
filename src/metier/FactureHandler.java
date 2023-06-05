@@ -21,7 +21,7 @@ public class FactureHandler {
     private Integer contentTypeFacture;
     private APICaller caller;
 
-    private ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper = new ObjectMapper();
 
     //Compared to the other constructor, this automatically connect a user and checks for the contentType Number, which is subject to change.
     //The other constructor is there in case we ever need a non-specific constructor.
@@ -81,6 +81,7 @@ public class FactureHandler {
                 retour.add(tempFacture);
             }
             //Once this VV execute, the factures on the GED have their general state set to ValidéeEnAttente, and will not be pulled again.
+            //If testing, it is better to comment this line, otherwise you'll need to re-add new doc every time, as the other one won't be considered valid for the search performed.
             validateFacture(retour);
             //If executed a second time here, this will set their "HasBeenPaid" state as "Yes"
             //And if executed a third time, it will archive them, setting their general state to "Archivée"
