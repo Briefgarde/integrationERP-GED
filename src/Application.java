@@ -11,8 +11,11 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
+
         FactureHandler factureHandler = new FactureHandler("secrétariat", "secrétariat");
+
         List<Facture> list = factureHandler.getFactureNonIncluse();
+
         System.out.println(list);
 
 
